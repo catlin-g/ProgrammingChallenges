@@ -1,28 +1,27 @@
 ﻿namespace LeetCode
 {
+	/// <summary>
+	/// 1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence
+	/// https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/
+	/// Difficulty: Easy
+	/// </summary>
 	internal class SolutionIsPrefixOfWord
 	{
 		public int IsPrefixOfWord(string sentence, string searchWord)
 		{
-			var words = sentence.Split(' ');
-			var minimumIndex = -1;
-			var currentIndex = 0;
+			var currentIndex = 1;
 
-			while (minimumIndex == -1 && currentIndex < words.Length)
+			foreach (var word in sentence.Split(' '))
 			{
-				if (searchWord.Length <= words[currentIndex].Length)
+				if (word.StartsWith(searchWord))
 				{
-					var comparer = words[currentIndex].Substring(0, searchWord.Length);
-					if (searchWord.Equals(comparer))
-					{
-						minimumIndex = currentIndex + 1;
-					}
+					return currentIndex;
 				}
 
 				++currentIndex;
 			}
 
-			return minimumIndex;
+			return -1;
 		}
 	}
 }
