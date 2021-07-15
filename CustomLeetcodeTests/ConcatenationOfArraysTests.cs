@@ -71,8 +71,8 @@ namespace CustomLeetCodeTests
 
 			// Act
 			var outputArray = solution.GetConcatenation(inputArray);
-			var firstHalf = outputArray.TakeLast(inputArray.Length).ToArray();
-			var secondHalf = outputArray.Take(inputArray.Length).ToArray();
+			var firstHalf = outputArray.Take(inputArray.Length).ToArray();
+			var secondHalf = outputArray.TakeLast(inputArray.Length).ToArray();
 
 			// Assert
 			CollectionAssert.AreEqual(firstHalf, secondHalf);
@@ -87,8 +87,8 @@ namespace CustomLeetCodeTests
 
 			// Act
 			var outputArray = solution.GetConcatenation(inputArray);
-			var firstHalf = outputArray.TakeLast(inputArray.Length).ToArray();
-			var secondHalf = outputArray.Take(inputArray.Length).ToArray();
+			var firstHalf = outputArray.Take(inputArray.Length).ToArray();
+			var secondHalf = outputArray.TakeLast(inputArray.Length).ToArray();
 
 			// Assert
 			CollectionAssert.AreEqual(inputArray, firstHalf);
