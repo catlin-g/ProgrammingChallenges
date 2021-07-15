@@ -4,93 +4,36 @@ using LeetCode;
 namespace CustomLeetCodeTests
 {
 	[TestClass]
-	class UniqueMorseCodeWordsTests
+	public class UniqueMorseCodeWordsTests
 	{
 		[TestMethod]
-		public void EmptyInputShouldReturnZeroUniqueMorseRepresentations()
+		public void NullUniqueMorseCodeWords()
 		{
-			// Arrange
-			var words = System.Array.Empty<string>();
-			var solution = new SolutionUniqueMorseCodeWords();
-
-			// Act
-			var uniqueMorseRepresentations = solution.UniqueMorseRepresentations(words);
-
-			// Assert
-			Assert.IsTrue(uniqueMorseRepresentations == 0);
-		}
-
-		[TestMethod]
-		public void NullArrayShouldThrowNullReferenceException()
-		{
-			// Arrange
+			// arrange
 			string[] words = null;
 			var solution = new SolutionUniqueMorseCodeWords();
 
-			// Act
-			// Assert
+			// act
+			// assert
 			_ = Assert.ThrowsException<System.NullReferenceException>(() => solution.UniqueMorseRepresentations(words));
 		}
 
 		[TestMethod]
-		public void InputArrayLengthGreaterThanOneShouldReturnAtLeastOneUniqueMorseCodeRepresentation()
+		public void EmptyUniqueMorseCodeWords()
 		{
-			// Arrange
-			var wordsOneElement = new string[] { "meow" };
-			var wordsEvenElements = new string[] { "old", "cat" };
-			var wordsOddElements = new string[] { "gin", "zen", "gig" };
-			var wordsManyElements = new string[] { "dog", "owl", "messy", "tofu", "pin", "fake", "lolly"};
+			// arrange
+			var words = System.Array.Empty<string>();
 			var solution = new SolutionUniqueMorseCodeWords();
 
-			// Act
-			var uniqueMorseCodeOneElement = solution.UniqueMorseRepresentations(wordsOneElement);
-			var uniqueMorseCodeEvenElements = solution.UniqueMorseRepresentations(wordsEvenElements);
-			var uniqueMorseCodeOddElements = solution.UniqueMorseRepresentations(wordsOddElements);
-			var uniqueMorseCodeManyElements = solution.UniqueMorseRepresentations(wordsManyElements);
+			// act
+			var uniqueMorseRepresentations = solution.UniqueMorseRepresentations(words);
 
-			// Assert
-			Assert.IsTrue(uniqueMorseCodeOneElement == 1);
-			Assert.IsTrue(uniqueMorseCodeEvenElements >= 1);
-			Assert.IsTrue(uniqueMorseCodeOddElements >= 1);
-			Assert.IsTrue(uniqueMorseCodeManyElements >= 1);
+			// assert
+			Assert.AreEqual(0, uniqueMorseRepresentations);
 		}
 
 		[TestMethod]
-		public void EmptyStringsShouldNotReturnMorseCodeRepresentations()
-		{
-			// Arrange
-			var emptyString = new string[] { "" };
-			var containsEmptyString = new string[] { "possum", "" };
-			var solution = new SolutionUniqueMorseCodeWords();
-
-			// Act
-			var uniqueMorseCodeEmptyString = solution.UniqueMorseRepresentations(emptyString);
-			var uniqueMorseCodeContainsEmptyString = solution.UniqueMorseRepresentations(containsEmptyString);
-
-			// Assert
-			Assert.IsTrue(uniqueMorseCodeEmptyString == 0);
-			Assert.IsTrue(uniqueMorseCodeContainsEmptyString == 1);
-		}
-
-		[TestMethod]
-		public void WhiteSpaceStringsShouldNotReturnMorseCodeRepresentations()
-		{
-			// Arrange
-			var whiteSpaceString = new string[] { " " };
-			var containsWhiteSpaceString = new string[] { "stick", "cup", "  " };
-			var solution = new SolutionUniqueMorseCodeWords();
-
-			// Act
-			var uniqueMorseCodeWhiteSpaceString = solution.UniqueMorseRepresentations(whiteSpaceString);
-			var uniqueMorseCodeContainsWhiteSpaceString = solution.UniqueMorseRepresentations(containsWhiteSpaceString);
-
-			// Assert
-			Assert.IsTrue(uniqueMorseCodeWhiteSpaceString == 0);
-			Assert.IsTrue(uniqueMorseCodeContainsWhiteSpaceString >= 1);
-		}
-
-		[TestMethod]
-		public void NullStringsShouldReturnNullReferenceException()
+		public void NullStringUniqueMorseCodeWords()
 		{
 			// Arrange
 			var word = new string[] { null };
@@ -104,18 +47,96 @@ namespace CustomLeetCodeTests
 		}
 
 		[TestMethod]
-		public void Examples()
+		public void EmptyStringUniqueMorseCodeWords()
 		{
 			// Arrange
+			var emptyString = new string[] { string.Empty };
+			var containsEmptyString = new string[] { "possum", string.Empty };
+			var solution = new SolutionUniqueMorseCodeWords();
+
+			// Act
+			var uniqueMorseCodeEmptyString = solution.UniqueMorseRepresentations(emptyString);
+			var uniqueMorseCodeContainsEmptyString = solution.UniqueMorseRepresentations(containsEmptyString);
+
+			// Assert
+			Assert.AreEqual(0, uniqueMorseCodeEmptyString);
+			Assert.AreEqual(1, uniqueMorseCodeContainsEmptyString);
+		}
+
+		[TestMethod]
+		public void WhiteSpaceStringUniqueMorseCodeWords()
+		{
+			// arrange
+			var whiteSpaceString = new string[] { " " };
+			var containsWhiteSpaceString = new string[] { "stick", "cup", "  " };
+			var solution = new SolutionUniqueMorseCodeWords();
+
+			// act
+			var uniqueMorseCodeWhiteSpaceString = solution.UniqueMorseRepresentations(whiteSpaceString);
+			var uniqueMorseCodeContainsWhiteSpaceString = solution.UniqueMorseRepresentations(containsWhiteSpaceString);
+
+			// assert
+			Assert.AreEqual(0, uniqueMorseCodeWhiteSpaceString);
+			Assert.AreEqual(2, uniqueMorseCodeContainsWhiteSpaceString);
+		}
+
+		[TestMethod]
+		public void TransformationUniqueMorseCodeWords()
+		{
+			// arrange
 			var word = new string[] { "hop" };
 			var morse = "....---.--.";
 			var solution = new SolutionUniqueMorseCodeWords();
 
-			// Act
+			// act
 			var uniqueMorseCodeWord = solution.UniqueMorseRepresentations(word);
 
-			// Assert
-			_ = Assert.Equals(uniqueMorseCodeWord, morse);
+			// assert
+		}
+
+		[TestMethod]
+		public void UniqueMorseCodeWords()
+		{
+			// arrange
+			var wordsOneElement = new string[] { "meow" };
+			var wordsEvenElements = new string[] { "old", "cat" };
+			var wordsOddElements = new string[] { "gin", "zen", "gig" };
+			var solution = new SolutionUniqueMorseCodeWords();
+
+			// act
+			var uniqueMorseCodeOneElement = solution.UniqueMorseRepresentations(wordsOneElement);
+			var uniqueMorseCodeEvenElements = solution.UniqueMorseRepresentations(wordsEvenElements);
+			var uniqueMorseCodeOddElements = solution.UniqueMorseRepresentations(wordsOddElements);
+
+			// assert
+			Assert.AreEqual(1, uniqueMorseCodeOneElement);
+			Assert.AreEqual(2, uniqueMorseCodeEvenElements);
+			Assert.AreEqual(2, uniqueMorseCodeOddElements);
+		}
+
+		[TestMethod]
+		public void Bound100WordsUniqueMorseCodeWords()
+		{
+			// arrange
+
+			// act
+
+			// assert
+		}
+
+		[TestMethod]
+		public void Bound12LettersUniqueMorseCodeWords()
+		{
+			// arrange
+			var word12Letters = new string[] { "hippopotamus" };
+			var expectedOutput = ".......--..--.---.--.----.---..-...";
+			var solution = new SolutionUniqueMorseCodeWords();
+
+			// act
+			var uniqueMorseCode = solution.UniqueMorseRepresentations(word12Letters);
+
+			// assert
+			Assert.AreEqual(1, uniqueMorseCode);
 		}
 	}
 }

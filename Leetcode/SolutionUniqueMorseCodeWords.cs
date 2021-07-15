@@ -10,7 +10,7 @@ namespace LeetCode
 	{
 		public int UniqueMorseRepresentations(string[] words)
 		{
-			return 0;
+			return int.MinValue;
 		}
 	}
 }
