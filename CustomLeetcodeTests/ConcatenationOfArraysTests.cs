@@ -8,7 +8,7 @@ namespace CustomLeetCodeTests
 	public class ConcatenationOfArraysTests
 	{
 		[TestMethod]
-		public void Concatenated_Array_Length_Should_Be_Double_Input_Array_Length()
+		public void ConcatenatedArrayLengthShouldBeDoubleInputArrayLength()
 		{
 			// Arrange
 			var inputArray = new int[] { 5, 101, 94 };
@@ -22,7 +22,7 @@ namespace CustomLeetCodeTests
 		}
 
 		[TestMethod]
-		public void Concatenated_Empty_Array_Should_Be_Zero_Length()
+		public void ConcatenatedEmptyArrayShouldBeLengthZero()
 		{
 			// Arrange
 			var inputArray = System.Array.Empty<int>();
@@ -36,7 +36,7 @@ namespace CustomLeetCodeTests
 		}
 
 		[TestMethod]
-		public void Concatenating_NULL_Array_Should_ThrowNullReferenceException()
+		public void ConcatenatingNULLArrayShouldThrowNullReferenceException()
 		{
 			// Arrange
 			int[] inputArray = null;
@@ -48,7 +48,7 @@ namespace CustomLeetCodeTests
 		}
 
 		[TestMethod]
-		public void Concatenated_Array_Length_Should_Always_Be_Even()
+		public void ConcatenatedArrayLengthShouldAlwaysBeEven()
 		{
 			// Arrange
 			var inputArray = new int[] { 333, 4, 67 };
@@ -63,7 +63,7 @@ namespace CustomLeetCodeTests
 
 
 		[TestMethod]
-		public void Values_In_First_Half_Of_Concatenated_Array_Should_Equal_Second_Half()
+		public void ConcatedArrayValuesInFirstHalfShouldEqualValuesInSecondHalf()
 		{
 			// Arrange
 			var inputArray = new int[] { 59, 403, 88, 3, 9 };
@@ -79,7 +79,7 @@ namespace CustomLeetCodeTests
 		}
 
 		[TestMethod]
-		public void Values_In_Original_Array_Should_Exist_In_Concatenated_Array()
+		public void InputArrayValuesShouldExistInOrderTwiceInConcatenatedArray()
 		{
 			// Arrange
 			var inputArray = new int[] { 7, 28, 406, 1000 };
