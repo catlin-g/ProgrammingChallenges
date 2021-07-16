@@ -41,9 +41,13 @@ namespace CustomLeetCodeTests
 			var solution = new SolutionUniqueMorseCodeWords();
 
 			// Act
+			var uniqueMorseCodeWord = solution.UniqueMorseRepresentations(word);
+			var uniqueMorseCodeWords = solution.UniqueMorseRepresentations(words);
+
 			// Assert
-			_ = Assert.ThrowsException<System.NullReferenceException>(() => solution.UniqueMorseRepresentations(word));
-			_ = Assert.ThrowsException<System.NullReferenceException>(() => solution.UniqueMorseRepresentations(words));
+			Assert.AreEqual(0, uniqueMorseCodeWord);
+			Assert.AreEqual(2, uniqueMorseCodeWords);
+
 		}
 
 		[TestMethod]
@@ -61,23 +65,6 @@ namespace CustomLeetCodeTests
 			// Assert
 			Assert.AreEqual(0, uniqueMorseCodeEmptyString);
 			Assert.AreEqual(1, uniqueMorseCodeContainsEmptyString);
-		}
-
-		[TestMethod]
-		public void WhiteSpaceStringUniqueMorseCodeWords()
-		{
-			// arrange
-			var whiteSpaceString = new string[] { " " };
-			var containsWhiteSpaceString = new string[] { "stick", "cup", "  " };
-			var solution = new SolutionUniqueMorseCodeWords();
-
-			// act
-			var uniqueMorseCodeWhiteSpaceString = solution.UniqueMorseRepresentations(whiteSpaceString);
-			var uniqueMorseCodeContainsWhiteSpaceString = solution.UniqueMorseRepresentations(containsWhiteSpaceString);
-
-			// assert
-			Assert.AreEqual(0, uniqueMorseCodeWhiteSpaceString);
-			Assert.AreEqual(2, uniqueMorseCodeContainsWhiteSpaceString);
 		}
 
 		[TestMethod]
