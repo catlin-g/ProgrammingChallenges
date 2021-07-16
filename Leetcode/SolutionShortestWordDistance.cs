@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LeetCode
 {
@@ -16,7 +12,33 @@ namespace LeetCode
 	{
 		public int ShortestDistance(string[] wordsDict, string word1, string word2)
 		{
-			return int.MinValue;
+			var distance = wordsDict.Length;
+			var index1 = -1;
+			var index2 = -1;
+
+			for (var i = 0; i < wordsDict.Length; ++i)
+			{
+				if (wordsDict[i].Equals(word1))
+				{
+					index1 = i;
+				}
+				else if (wordsDict[i].Equals(word2))
+				{
+					index2 = i;
+				}
+
+				if (index1 != -1 && index2 != -1)
+				{
+					distance = Math.Min(distance, Math.Abs(index1 - index2));
+				}
+
+				if (distance == 1)
+				{
+					return distance;
+				}
+			}
+
+			return distance;
 		}
 	}
 }

@@ -55,7 +55,7 @@ namespace CustomLeetCodeTests
 		}
 
 		[TestMethod]
-		public void TestShortestWordDistance()
+		public void TestShortestWordDistanceGeneralCase()
 		{
 			// arrange
 			var wordsDict = new string[] { "practice", "makes", "perfect", "coding", "makes" };
@@ -72,6 +72,22 @@ namespace CustomLeetCodeTests
 			// assert
 			Assert.AreEqual(3, distance1);
 			Assert.AreEqual(1, distance2);
+		}
+
+		[TestMethod]
+		public void TestShortestWordDistanceLastLetter()
+		{
+			// arrange
+			var wordsDict = new string[] { "five", "carpet", "rain", "rain", "five" };
+			var word1 = "five";
+			var word2 = "rain";
+			var solution = new SolutionShortestWordDistance();
+
+			// act
+			var distance1 = solution.ShortestDistance(wordsDict, word1, word2);
+
+			// assert
+			Assert.AreEqual(1, distance1);
 		}
 	}
 }
