@@ -75,7 +75,7 @@ namespace CustomLeetCodeTests
 		}
 
 		[TestMethod]
-		public void TestShortestWordDistanceLastLetter()
+		public void TestShortestWordDistanceLastWord()
 		{
 			// arrange
 			var wordsDict = new string[] { "five", "carpet", "rain", "rain", "five" };
@@ -84,10 +84,10 @@ namespace CustomLeetCodeTests
 			var solution = new SolutionShortestWordDistance();
 
 			// act
-			var distance1 = solution.ShortestDistance(wordsDict, word1, word2);
+			var distance = solution.ShortestDistance(wordsDict, word1, word2);
 
 			// assert
-			Assert.AreEqual(1, distance1);
+			Assert.AreEqual(1, distance);
 		}
 	}
 }
