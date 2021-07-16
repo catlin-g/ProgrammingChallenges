@@ -3,6 +3,12 @@ using System.Text;
 
 namespace LeetCode
 {
+	/// <summary>
+	/// 804. Unique Morse Code Words
+	/// https://leetcode.com/problems/prime-number-of-set-bits-in-binary-representation/
+	/// Difficulty: Easy
+	/// </summary>
+
 	public class SolutionUniqueMorseCodeWords
 	{
 		public int UniqueMorseRepresentations(string[] words)

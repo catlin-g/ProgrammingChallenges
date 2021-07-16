@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-/// <summary>
-/// 762. Prime Number of Set Bits in Binary Representation
-/// https://leetcode.com/problems/prime-number-of-set-bits-in-binary-representation/
-/// Difficulty: Easy
-/// </summary>
-
-namespace LeetCode
+﻿namespace LeetCode
 {
-	class SolutionCountPrimeSetBits
+	/// <summary>
+	/// 762. Prime Number of Set Bits in Binary Representation
+	/// https://leetcode.com/problems/prime-number-of-set-bits-in-binary-representation/
+	/// Difficulty: Easy
+	/// </summary>
+
+	internal class SolutionCountPrimeSetBits
 	{
 		public int CountPrimeSetBits(int left, int right)
 		{
 			var count = 0;
 
-			for(var i = left; i <= right; ++i)
+			for (var i = left; i <= right; ++i)
 			{
 				var temp = CountSetBits(i);
 
@@ -35,7 +29,7 @@ namespace LeetCode
 		{
 			var result = 0;
 
-			while(num > 0)
+			while (num > 0)
 			{
 				if ((num & 1) == 1)
 				{
@@ -46,7 +40,6 @@ namespace LeetCode
 			}
 			return result;
 		}
-
 
 		public bool IsPrime(int num)
 		{
