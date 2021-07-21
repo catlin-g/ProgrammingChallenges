@@ -12,29 +12,29 @@ namespace LeetCode
 
 			foreach (var score in items)
 			{
-				var currentStudentID = score[0];
-				var currentStudentScore = score[1];
+				var studentID = score[0];
+				var studentScore = score[1];
 
-				if (studentScores.ContainsKey(currentStudentID))
+				if (studentScores.ContainsKey(studentID))
 				{
-					if (studentScores[currentStudentID].Count == 5 && studentScores[currentStudentID].Peek() < currentStudentScore)
+					if (studentScores[studentID].Count == 5 && studentScores[studentID].Peek() < studentScore)
 					{
-						_ = studentScores[currentStudentID].Pop();
+						_ = studentScores[studentID].Pop();
 					}
 
-					if (studentScores[currentStudentID].Count < 5)
+					if (studentScores[studentID].Count < 5)
 					{
-						studentScores[currentStudentID].Push(currentStudentScore);
+						studentScores[studentID].Push(studentScore);
 
-						var scoreArray = studentScores[currentStudentID].ToArray();
+						var scoreArray = studentScores[studentID].ToArray();
 						Array.Sort(scoreArray, new Comparison<int>((i1, i2) => i2.CompareTo(i1)));
-						studentScores[currentStudentID] = new Stack<int>(scoreArray);
+						studentScores[studentID] = new Stack<int>(scoreArray);
 					}
 				}
 				else
 				{
-					studentScores.Add(currentStudentID, new Stack<int>());
-					studentScores[currentStudentID].Push(currentStudentScore);
+					studentScores.Add(studentID, new Stack<int>());
+					studentScores[studentID].Push(studentScore);
 				}
 			}
 
