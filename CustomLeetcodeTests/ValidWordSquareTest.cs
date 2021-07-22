@@ -16,6 +16,7 @@ namespace CustomLeetCodeTests
 			var words3 = new List<string>() { "ball", "area", "read", "lady" };
 			var words4 = new List<string>() { "ball", "asee", "let", "lep" };
 			var words5 = new List<string>() { "abc", "a" };
+			var words6 = new List<string>() { "z" };
 			var solution = new SolutionValidWordSquare();
 
 			// act
@@ -24,6 +25,7 @@ namespace CustomLeetCodeTests
 			var result3 = solution.ValidWordSquare(words3);
 			var result4 = solution.ValidWordSquare(words4);
 			var result5 = solution.ValidWordSquare(words5);
+			var result6 = solution.ValidWordSquare(words6);
 
 			// assert
 			Assert.IsTrue(result1);
@@ -31,6 +33,7 @@ namespace CustomLeetCodeTests
 			Assert.IsFalse(result3);
 			Assert.IsFalse(result4);
 			Assert.IsFalse(result5);
+			Assert.IsTrue(result6);
 		}
 
 	}
