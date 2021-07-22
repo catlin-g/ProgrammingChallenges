@@ -1,41 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace LeetCode
 {
 	public class SolutionHighFive
 	{
+		/// <summary>
+		/// 1086. High Five
+		/// https://leetcode.com/problems/high-five/
+		/// Difficulty: Easy
+		/// </summary>
+
 		public int[][] HighFive(int[][] items)
 		{
-			var studentScores = new SortedDictionary<int, Stack<int>>();
+			var studentScores = new SortedDictionary<int, List<int>>();
 
 			foreach (var score in items)
 			{
-				var studentID = score[0];
-				var studentScore = score[1];
+				var (studentID, studentScore) = (score[0], score[1]);
 
-				if (studentScores.ContainsKey(studentID))
+				if (!studentScores.ContainsKey(studentID))
 				{
-					if (studentScores[studentID].Count == 5 && studentScores[studentID].Peek() < studentScore)
-					{
-						_ = studentScores[studentID].Pop();
-					}
-
-					if (studentScores[studentID].Count < 5)
-					{
-						studentScores[studentID].Push(studentScore);
-
-						var scoreArray = studentScores[studentID].ToArray();
-						Array.Sort(scoreArray, new Comparison<int>((i1, i2) => i2.CompareTo(i1)));
-						studentScores[studentID] = new Stack<int>(scoreArray);
-					}
+					studentScores[studentID] = new List<int>();
 				}
-				else
-				{
-					studentScores.Add(studentID, new Stack<int>());
-					studentScores[studentID].Push(studentScore);
-				}
+
+				studentScores[studentID].Add(studentScore);
 			}
 
 			var result = new int[studentScores.Count][];
@@ -43,12 +32,10 @@ namespace LeetCode
 
 			foreach (var element in studentScores)
 			{
-				var scoreArray = element.Value.ToArray();
-				var average = scoreArray.Sum() / 5;
+				element.Value.Sort((e1, e2) => e2.CompareTo(e1));
+				var average =  element.Value.Take(5).Sum() / 5;
 
-				result[index] = new int[] { element.Key, average };
-
-				++index;
+				result[index++] = new int[] { element.Key, average };
 			}
 
 			return result;
